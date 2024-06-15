@@ -12,3 +12,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model result_predict {
+  id           Int      @id @default(autoincrement())
+  result       String   @db.VarChar(255)
+  explanation  String   @db.VarChar(255)
+  suggestion  String   @db.VarChar(255)
+  confidenceScore Decimal
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+}

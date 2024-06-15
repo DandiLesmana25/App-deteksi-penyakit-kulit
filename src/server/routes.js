@@ -1,4 +1,6 @@
+const postPredict = require("../server/controllers");
 
+postPredict
 
 const routes = [
     {
@@ -10,17 +12,15 @@ const routes = [
     },
     {
         path:'/predict',
-        method: "GET",
-        handler: ()=>{
-            console.log('tes');
-        },
-        // options: {
-        //     payload: {
-        //          /*Mengizinkan data berupa gambar*/
-        //         allow:  'multipart/form-data',
-        //         multipart: true
-        //     }
-        // }
+        method: "POST",
+        handler: postPredict,
+        options: {
+            payload: {
+                 /*Mengizinkan data berupa gambar*/
+                allow:  'multipart/form-data',
+                multipart: true
+            }
+        }
     }
 ]
 
